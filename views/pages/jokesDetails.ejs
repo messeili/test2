@@ -1,0 +1,29 @@
+<%- include('../partials/head'); %>
+
+<body>
+    <nav>
+        <a href="/ranJokes">Random Jokes</a>
+        <a href="/">Home</a>
+    </nav>
+    <div class="flex">
+        <p><%= data.id%></p>
+        <p><%= data.type%></p>
+        <p><%= data.setup%></p>
+        <p><%= data.punchline%></p>
+        <form action="/deleteJoke/<%= data.idp%>?_method=delete" method="POST">
+            <button>Delete</button>
+        </form>
+
+        <form action="/updateJoke/<%= data.idp%>?_method=put" method="POST">
+            <input type="text" name="id" value="<%= data.id%>">
+            <input type="text" name="type" value="<%= data.type%>">
+            <input type="text" name="setup" value="<%= data.setup%>">
+            <input type="text" name="punchline" value="<%= data.punchline%>">
+            <button>update</button>
+        </form>
+
+    </div>
+    <%- include('../partials/script'); %>
+</body>
+
+</html>

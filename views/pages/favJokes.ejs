@@ -1,0 +1,23 @@
+<%- include('../partials/head'); %>
+
+<body>
+    <nav>
+        <a href="/ranJokes">Random Jokes</a>
+        <a href="/">Home</a>
+    </nav>
+    <% data.forEach(item=>{%>
+    <div class="flex">
+        <p><%= item.id%></p>
+        <p><%= item.type%></p>
+        <p><%= item.setup%></p>
+        <p><%= item.punchline%></p>
+        <form action="/joke/<%= item.idp%>" method="get">
+            <button>Details</button>
+        </form>
+
+    </div>
+    <%})%>
+    <%- include('../partials/script'); %>
+</body>
+
+</html>
